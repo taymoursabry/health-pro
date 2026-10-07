@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0c0a09" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Health Pro" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="./icon-192.png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <title>Health Pro</title>
+    <script type="module" crossorigin src="./assets/index-BuLtMsHU.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CiiZT9IF.css">
+  </head>
+  <body>
+    <div id="root"><div id="boot" style="min-height:100vh;display:flex;align-items:center;justify-content:center;color:#a8a29e;font:12px monospace;letter-spacing:.1em">LOADING HEALTH PRO…</div></div>
+    <script>
+      window.addEventListener("error", function (e) {
+        var b = document.getElementById("boot");
+        if (b) b.innerHTML = '<div style="padding:24px;color:#fda4af;font:13px monospace">The app hit an error and could not start.<br><br>' + String(e.message || e.error || "Unknown error").replace(/</g,"&lt;") + '<br><br>Send a screenshot of this to Claude.</div>';
+      });
+    </script>
+  </body>
+</html>
