@@ -1,5 +1,5 @@
 /* Keeps the app opening with no signal. Data sync is handled in the app itself. */
-const CACHE = "health-pro-v2";
+const CACHE = "health-pro-v3";
 const BASE = new URL("./", self.location).pathname;
 
 self.addEventListener("install", (e) => {
@@ -18,7 +18,7 @@ self.addEventListener("fetch", (e) => {
 
   if (req.mode === "navigate") {
     e.respondWith(
-      fetch(req).then((res) => {
+      fetch(req, { cache: "no-store" }).then((res) => {
         const copy = res.clone();
         caches.open(CACHE).then((c) => c.put(BASE + "index.html", copy));
         return res;
