@@ -1,5 +1,5 @@
 /* Keeps the app opening with no signal. Data sync is handled in the app itself. */
-const CACHE = "health-pro-v3";
+const CACHE = "health-pro-v4";
 const BASE = new URL("./", self.location).pathname;
 
 self.addEventListener("install", (e) => {
