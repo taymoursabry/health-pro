@@ -1,5 +1,5 @@
 /* Keeps the app opening with no signal. Data sync is handled in the app itself. */
-const CACHE = "health-pro-v4";
+const CACHE = "health-pro-v5";
 const BASE = new URL("./", self.location).pathname;
 
 self.addEventListener("install", (e) => {
@@ -15,6 +15,9 @@ self.addEventListener("fetch", (e) => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
+
+  /* Only the app page is kept for offline use; other pages (the team dashboard) always load fresh */
+  if (req.mode === "navigate" && url.pathname !== BASE && url.pathname !== BASE + "index.html") return;
 
   if (req.mode === "navigate") {
     e.respondWith(
